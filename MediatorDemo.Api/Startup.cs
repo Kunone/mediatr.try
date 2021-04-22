@@ -11,6 +11,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MediatR;
+using MediatorDemo.Library;
+using MediatorDemo.Library.DataAccess;
 
 namespace MediatorDemo.Api
 {
@@ -32,6 +35,9 @@ namespace MediatorDemo.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatorDemo.Api", Version = "v1" });
             });
+
+            services.AddSingleton<IDataAccess, DemoDataAccess>();
+            services.AddMediatR(typeof(MediatREntrypoint).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
