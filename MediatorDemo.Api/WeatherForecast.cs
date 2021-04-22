@@ -1,6 +1,6 @@
 using System;
 
-namespace MediatorDemo
+namespace MediatorDemo.Api
 {
     public class WeatherForecast
     {

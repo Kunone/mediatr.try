@@ -12,7 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace MediatorDemo
+namespace MediatorDemo.Api
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace MediatorDemo
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatorDemo", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatorDemo.Api", Version = "v1" });
             });
         }
 
@@ -41,7 +41,7 @@ namespace MediatorDemo
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MediatorDemo v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MediatorDemo.Api v1"));
             }
 
             app.UseHttpsRedirection();
